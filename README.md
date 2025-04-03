@@ -1,5 +1,3 @@
-# Mantine Vite template
+# Mantine Scrollable Tabs Example
 
-Get started with the template by clicking `Use this template` button on the top of the page.
-
-[Documentation](https://mantine.dev/guides/vite/)
+It's an example with scrollable tabs base on mantine.dev - [tabs](https://mantine.dev/core/tabs/).
