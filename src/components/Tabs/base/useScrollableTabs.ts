@@ -3,7 +3,7 @@ import { rafThrottle } from "../../../shared/utils/rafThrottle";
 
 const ACTIVE_TAB_SELECTOR = '[aria-selected="true"]'
 
-const scrollToActiveTab = (element?: HTMLDivElement) => {
+const scrollToActiveTab = (element: HTMLDivElement | null) => {
     const activeTab = element?.querySelector<HTMLButtonElement>(ACTIVE_TAB_SELECTOR);
 
     if (activeTab) {
@@ -12,7 +12,7 @@ const scrollToActiveTab = (element?: HTMLDivElement) => {
 };
 
 export const useScrollableTabs = () => {
-    const tabListReference = useRef<HTMLDivElement | undefined>(undefined);
+    const tabListReference = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
         // 1. Scroll immediately after mounting
