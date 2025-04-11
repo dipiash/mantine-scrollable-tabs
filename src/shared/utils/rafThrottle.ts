@@ -1,14 +1,13 @@
-export const rafThrottle = function <T extends (...args: any[]) => void>(fn: T) {
-    let isRunning = false;
+export const rafThrottle = <T extends (...args: any[]) => void>(fn: T) => {
+    let raf: number;
 
-    return function(this: any, ...args: Parameters<T>) {
-        if (isRunning) return;
+    return (...args: Parameters<T>) => {
+        if (raf) {
+            cancelAnimationFrame(raf);
+        }
 
-        isRunning = true;
-
-        requestAnimationFrame(() => {
-            fn.apply(this, args);
-            isRunning = false;
+        raf = requestAnimationFrame(() => {
+            fn(...args);
         });
     };
 };

@@ -15,10 +15,10 @@ export const useScrollableTabs = () => {
     const tabListReference = useRef<HTMLDivElement | undefined>(undefined);
 
     useEffect(() => {
-        // Scroll immediately after mounting
+        // 1. Scroll immediately after mounting
         scrollToActiveTab(tabListReference.current);
 
-        // Scroll when active
+        // 2. Scroll when active
         const observer = new MutationObserver(() => {
             scrollToActiveTab(tabListReference.current);
         });
@@ -30,7 +30,7 @@ export const useScrollableTabs = () => {
             });
         }
 
-        // Add resize handler
+        // 3. Add resize handler
         const throttledHandleResize = rafThrottle(() => {
             scrollToActiveTab(tabListReference.current);
         });
