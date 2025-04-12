@@ -3,11 +3,11 @@ import { rafThrottle } from "../../../shared/utils/rafThrottle";
 
 const ACTIVE_TAB_SELECTOR = '[aria-selected="true"]'
 
-const scrollToActiveTab = (element: HTMLDivElement | null) => {
+const scrollToActiveTab = (element: HTMLDivElement | null, scrollIntoViewOptions?: ScrollIntoViewOptions) => {
     const activeTab = element?.querySelector<HTMLButtonElement>(ACTIVE_TAB_SELECTOR);
 
     if (activeTab) {
-        activeTab.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+        activeTab.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest", ...scrollIntoViewOptions });
     }
 };
 
@@ -16,7 +16,7 @@ export const useScrollableTabs = () => {
 
     useEffect(() => {
         // 1. Scroll immediately after mounting
-        scrollToActiveTab(tabListReference.current);
+        scrollToActiveTab(tabListReference.current, { behavior: 'instant' });
 
         // 2. Scroll when active
         const observer = new MutationObserver(() => {
