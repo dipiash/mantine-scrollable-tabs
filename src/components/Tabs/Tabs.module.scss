@@ -11,6 +11,11 @@
     &[data-variant="outline"] {
       border-bottom-color: var(--tabs-color);
 
+      &:not([data-active]) {
+        border-left: none;
+        border-right: none;
+      }
+
       &:where([data-active]) {
         border-color: var(--tabs-color);
         border-bottom: none;
