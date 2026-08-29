@@ -1,28 +1,32 @@
 {
-  "name": "vite-min-template",
-  "private": true,
+  "name": "mantine-scrollable-tabs",
+  "private": false,
   "version": "0.0.0",
   "type": "module",
+  "engines": {
+    "node": "20.19.0 || >=22.12.0"
+  },
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
+    "build": "npm run typecheck && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@mantine/core": "7.17.2",
-    "@mantine/hooks": "7.17.2",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "@mantine/core": "9.5.2",
+    "@mantine/hooks": "9.5.2",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
   },
   "devDependencies": {
-    "@types/react": "^19.0.12",
-    "@types/react-dom": "^19.0.4",
-    "@vitejs/plugin-react": "^4.3.4",
-    "postcss": "^8.5.3",
-    "postcss-preset-mantine": "1.17.0",
-    "postcss-simple-vars": "^7.0.1",
-    "typescript": "^5.8.2",
-    "vite": "^6.2.2",
-    "sass-embedded": "1.86.0"
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.5",
+    "@vitejs/plugin-react": "6.1.1",
+    "postcss": "8.5.26",
+    "postcss-preset-mantine": "1.18.0",
+    "postcss-simple-vars": "7.0.1",
+    "sass-embedded": "1.103.1",
+    "typescript": "7.0.2",
+    "vite": "8.2.2"
   }
 }

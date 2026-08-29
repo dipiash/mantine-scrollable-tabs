@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { rafThrottle } from "../../../shared/utils/rafThrottle";
+import { rafThrottle } from "../utils/rafThrottle";
 
 const ACTIVE_TAB_SELECTOR = '[aria-selected="true"]'
 
@@ -26,6 +26,7 @@ export const useScrollableTabs = () => {
         if (tabListReference.current) {
             observer.observe(tabListReference.current, {
                 attributes: true,
+                attributeFilter: ["aria-selected"],
                 subtree: true,
             });
         }
